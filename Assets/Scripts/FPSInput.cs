@@ -21,7 +21,7 @@ public class FPSInput : MonoBehaviour
     
     void Update()
     {
-        _acceleration = Input.GetButton("Fire1")? runSpeed: speed;
+        _acceleration = Input.GetButton("Fire2")? runSpeed: speed;
         float deltaX = Input.GetAxis("Horizontal") * _acceleration;
         float deltaZ = Input.GetAxis("Vertical") * _acceleration;
         Vector3 movement = new Vector3(deltaX, 0, deltaZ);
