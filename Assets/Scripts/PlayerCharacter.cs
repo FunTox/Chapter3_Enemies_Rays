@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class PlayerCharacter : MonoBehaviour
     public void Hurt(int damage)
     {
         _health -= damage;
-        Debug.Log("Health: " + _health);
+        
+        if (_health <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            Debug.Log("Health: " + _health);
+        }
     }
 }
