@@ -1,26 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class Fireball : MonoBehaviour
-{
+public class Fireball : MonoBehaviour {
     public float speed = 10.0f;
     public int damage = 1;
 
-    private void Update()
-    {
+    void Update() {
         transform.Translate(0, 0, speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         PlayerCharacter player = other.GetComponent<PlayerCharacter>();
-        if (player != null)
+        if (player != null) 
         {
             player.Hurt(damage);
         }
-
         Destroy(this.gameObject);
     }
 }
